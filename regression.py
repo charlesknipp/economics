@@ -12,21 +12,23 @@ register_matplotlib_converters()
 
 
 # this is a very rudimentary login system so we can each use our own api keys
-user = str(input('niBBa who da fuq r u? '))
+user = str(input('new script, who dis? '))
 
 if user == 'charlie':
     fred = Fred(api_key='ecae2fc8d6c684847525a828ae7a3ab8')
     x = 1
-    # if you want to run your own separate code put it in the conditional
 
 elif user == 'noah':
-    fred = Fred(api_key='') # enter yo key faggot
+    fred = Fred(api_key='9c9998bd36a2bdbcf4e13c63b0a5edaf')
     x = 2
-    # if you want to run your own separate code put it in the conditional
+
+elif user == 'anon':
+    fred = Fred(api_key='') # register for a key at https://research.stlouisfed.org/docs/api/api_key.html
+    x = 3
 
 else:
     print('fuq u')
-    user = input('don\'t fuq with me niBBa...ur name? ')
+    user = input('u bitch, tell me one more goddamn time. ')
     x = 0
 
 
@@ -66,7 +68,7 @@ if x != 1:
     i = 1    # i := independent vairables
     while i < 2:
         if lmadj.pvalues[i] < .05:
-            print('\nreject that shitty null')
+            print('\nreject the null')
 
         else:
             print('\nlmao nice try fa66ot')
