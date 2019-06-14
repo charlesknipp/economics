@@ -22,11 +22,14 @@ From now on we will set α = 0.
 This is a well behaved maximization problem. In this case (α = 0), the optimal consumption are all positive. Note that necessary and sufficient condition for optimum are:
 
 ```
-(1 + β)xt+1 − βxt = xt+2 ∀ t ∈ {0, 1, ..., T − 1}
-xT +1 = 0
-xt+1 = xt − ct ∀ t
+(1 + β)x[t+1] − βx[t] = x[t+2] ∀ t ∈ {0, 1, ..., T − 1}
+x[T+1] = 0
+x[t+1] = x[t] − c[t] ∀ t
 ```
 
-Use the program to find optimum {c[0], x[t+1]} for the following values
-1. α = 0, β = 0.95, T = 20, x[0] = 20;
-2. α = 0, β = 0.7, T = 20, x[0] = 20
+Use the program to find optimum {c[0], x[t+1]} for the following values:
+
+```
+Set 1 = {α = 0, β = 0.95, T = 20, x[0] = 20}
+Set 2 = {α = 0, β = 0.7, T = 20, x[0] = 20}
+```
