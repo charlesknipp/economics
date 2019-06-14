@@ -27,6 +27,8 @@ pip install fredapi
 
 Now in order to run the damn thing, punch in the file path into cmd and hit enter. If that doesn't work then you're :shit: out of luck @nayod78
 
+### To do list:
+
 - [x] Automate heteroskedasticity corrected standard errors
 - [ ] Allow users to input FRED data sets in the console (and work properly)
 - [ ] Call from a server of existing users and store their queries
