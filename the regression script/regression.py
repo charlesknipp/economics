@@ -23,7 +23,7 @@ elif user == 'noah':
     x = 2
 
 elif user == 'anon':
-    fred = Fred(api_key='') # register for a key at https://research.stlouisfed.org/docs/api/api_key.html
+    fred = Fred(api_key='')
     x = 3
 
 else:
