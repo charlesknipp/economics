@@ -11,7 +11,7 @@ discount rate, a time period, and a budget.
 ### The regression script
 
 `regression.py` is an ongoing project that pulls from FRED datasets and regresses the joined
-dataframes; it automatically accounts for hederoskedasticity and if there is only one regressor, it
+dataframes; it automatically accounts for heteroskedasticity and if there is only one regressor, it
 tells you to reject. You do need an api key from [FRED](https://research.stlouisfed.org/docs/api/api_key.html)
 in order to run the script.
 
