@@ -25,8 +25,8 @@ pip install fredapi
 
 *Side note: we need to downgrade scipy to version 1.2.1 because statsmodels is not updated to comply with scipy's newly defined factorials (unless you get it straight from the git repository)*
 
-Now in order to run the damn thing, punch in the file path into cmd and hit enter. If that doesn't work then you're :POOP: out of luck @nayod78
+Now in order to run the damn thing, punch in the file path into cmd and hit enter. If that doesn't work then you're :shit: out of luck @nayod78
 
--[x] Automate heteroskedasticity corrected standard errors
--[ ] Allow users to input FRED data sets in the console (and work properly)
--[ ] Call from a server of existing users and store their queries
+- [x] Automate heteroskedasticity corrected standard errors
+- [ ] Allow users to input FRED data sets in the console (and work properly)
+- [ ] Call from a server of existing users and store their queries
