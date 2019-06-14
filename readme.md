@@ -4,7 +4,7 @@ A repository of all the code I use as an undergraduate economics/math student.
 
 ### The cake eating problem
 
-`cake_is_a_problem.py` was introduced by Dr. Edward C Prescott in ECN 425. The problem requires
+`cake_is_a_problem.py` was introduced by Dr. Edward C Prescott in ECN 413. The problem requires
 students to maximize aggregate utility over time by optimizing consumption; constraints include a
 discount rate, a time period, and a budget.
 

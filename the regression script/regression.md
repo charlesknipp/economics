@@ -1,8 +1,8 @@
-## makeup tutorial ft. James Charles
+## Regression tutorial
 
 Now that I have your attention, chances are you don't know how to use this kind of script. That's gonna change...I hope
 
-**You need to have Python 3 installed locally in your machine**
+**You need to have Python 3 installed locally on your machine**
 
 Once you have your api key from [FRED](https://research.stlouisfed.org/docs/api/api_key.html) complete the following code in the script such that you replace ... with the api key and # with one plus the previous user's value for x:
 
