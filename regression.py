@@ -21,7 +21,7 @@ if user == 'charlie':
 
 elif user == 'noah':
     fred = Fred(api_key='') # enter yo key faggot
-    x = 1
+    x = 2
     # if you want to run your own separate code put it in the conditional
 
 else:
@@ -31,7 +31,7 @@ else:
 
 
 # this conditional houses our work
-if x == 1:
+if x != 1:
     # take the series from FRED and convert it to a ts data frame
     ser1 = fred.get_series('GDP')
     df1 = ser1.to_frame(name='GDP')
