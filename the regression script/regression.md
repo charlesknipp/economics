@@ -4,12 +4,12 @@ Now that I have your attention, chances are you don't know how to use this kind 
 
 **You need to have Python 3 installed locally on your machine**
 
-Once you have your api key from [FRED](https://research.stlouisfed.org/docs/api/api_key.html) complete the following code in the script such that you replace ... with the api key and # with one plus the previous user's value for x:
+Once you have your api key from [FRED](https://research.stlouisfed.org/docs/api/api_key.html) you will be prompted to enter it when you run the script so have it ready in a separate document. The chain of inputs should look like this:
 
 ```
-elif user == 'name':
-    fred = Fred(api_key='...')
-    x = #
+>> new script, who dis?
+>> u have a FRED api key?
+>> enter ur FRED api key:
 ```
 
 Before you can run the script, you have to install the required packages. To do this without royally fucking up, input the following commands in cmd:
@@ -25,4 +25,8 @@ pip install fredapi
 
 *Side note: we need to downgrade scipy to version 1.2.1 because statsmodels is not updated to comply with scipy's newly defined factorials (unless you get it straight from the git repository)*
 
-Now in order to run the damn thing, punch in the file path into cmd and hit enter. If that doesn't work then you're :POOP: out of luck @noah_deitrick
+Now in order to run the damn thing, punch in the file path into cmd and hit enter. If that doesn't work then you're :POOP: out of luck @nayod78
+
+-[x] Automate heteroskedasticity corrected standard errors
+-[ ] Allow users to input FRED data sets in the console (and work properly)
+-[ ] Call from a server of existing users and store their queries

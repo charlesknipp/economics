@@ -12,7 +12,7 @@ T = 20
 a = 0
 
 
-# define a function that calculates the proceeding cake consumption given the initial and a guess for the first period
+# define a function that calculates the proceeding pizza consumption given the initial and a guess for the first period
 def adjustedx1(min1, max1, initial):
   newx1 = [initial]
   newx1.append((max1+min1)/2)
@@ -30,7 +30,7 @@ def adjustedx2(min2, max2, initial):
   return newx2
 
 
-# define the boundaries for initial cake consumption
+# define the boundaries for initial pizza consumption
 max1 = x[0]
 min1 = 0
 
@@ -43,7 +43,7 @@ x1 = adjustedx1(min1, max1, x[0])
 x2 = adjustedx2(min2, max2, x[0])
 
 
-# create a conditional loop such that we redefine upper and lower boundaries until we have no more cake at the end of the final period
+# create a conditional loop such that we redefine upper and lower boundaries until we have no more pizza at the end of the final period
 while True:
   if x1[T] > 0.00001:
     max1 = x1[1]
@@ -66,8 +66,8 @@ while True:
 
 
 # this value should be close to 0 if we properly condition our statements, and it certainly is
-print('the cake left over at a rate of .95: ',abs(round(x1[T],4)))
-print('the cake left over at a rate of .70: ',abs(round(x2[T],4)))
+print('the pizza left over at a rate of .95: ',abs(round(x1[T],4)))
+print('the pizza left over at a rate of .70: ',abs(round(x2[T],4)))
 
 
 # define some value of consumption given x[] and discount factors for both sets
