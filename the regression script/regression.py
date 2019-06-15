@@ -67,6 +67,15 @@ if x == 1:
             df = df1.join(df_loop)
     '''
 
+    # or maybe I could try something like this... I hope...
+
+    '''
+    for y in datasets:
+        ser_alt = ['']
+        ser_alt.append(fred.get_series(datasets[y]))
+    df_alt = df[0].join(df[1:])
+    '''
+
     # take the series from FRED and convert it to a ts data frame
     ser1 = fred.get_series('GDP')
     df1 = ser1.to_frame(name='GDP')
