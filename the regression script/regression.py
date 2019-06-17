@@ -45,14 +45,13 @@ if x == 1:
     df = ser.to_frame(name=str(datasets[0]))
 
     for set in datasets:
-        if datasets.index(set)==0:
+        if datasets.index(set) == 0:
             continue
         ser1 = fred.get_series(set)
         df1 = ser1.to_frame(name=set)
-        df = pd.concat([df,df1], axis = 1)
+        df = pd.concat([df, df1], axis=1)
 
     print(df.tail(10))
-
 
     # splits the known list items into dependent and indepentent variables
     print('choose your dependent variable:')
@@ -78,7 +77,6 @@ if x == 1:
     formula = str(lmd + lmi)
     lm = smf.ols(formula, data=df).fit()
 
-
     # a quick breusch pagan test for hedero/homoskedasticity
     bptest = sms.het_breuschpagan(lm.resid, lm.model.exog)
 
@@ -94,8 +92,7 @@ if x == 1:
     coefficients = lmadj.params
     print('\nthese are the coefficients:\n', coefficients)
 
-
-    i = len(datasets) # i := independent vairables
+    i = len(datasets)  # i := independent vairables
 
     if i < 2:
         if lmadj.pvalues[i] < .05:
