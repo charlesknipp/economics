@@ -4,14 +4,6 @@ Now that I have your attention, chances are you don't know how to use this kind 
 
 **You need to have Python 3 installed locally on your machine**
 
-Once you have your api key from [FRED](https://research.stlouisfed.org/docs/api/api_key.html) you will be prompted to enter it when you run the script so have it ready in a separate document. The chain of inputs should look like this:
-
-```
->> new script, who dis?
->> u have a FRED api key?
->> enter ur FRED api key:
-```
-
 Before you can run the script, you have to install the required packages. To do this without royally fucking up, input the following commands in cmd:
 
 ```
@@ -27,8 +19,25 @@ pip install fredapi
 
 Now in order to run the damn thing, punch in the file path into cmd and hit enter. If that doesn't work then you're :shit: out of luck @nayod78
 
+Once you have your api key from [FRED](https://research.stlouisfed.org/docs/api/api_key.html) you will be prompted to enter it when you run the script so have it ready in a separate document. The chain of inputs should look like this:
+
+```
+>> new script, who dis?
+>> u have a FRED api key?
+>> enter ur FRED api key:
+```
+
+When you enter the desired data sets try to separate each list item with a comma and a space as to not confuse the parser. I think it should work either way, but just to be safe it should look like this:
+
+```
+>> which FRED datasets u want? GDP, SP500, CPIAUCSL, FEDFUNDS
+```
+
+The script is designed to be flexible with inputs so you shouldn't have to worry about uppercase inputs; however try to stay consistent with your inputs since this is a very basic parser.
+
 ### To do list:
 
 - [x] Automate heteroskedasticity corrected standard errors
-- [ ] Allow users to input FRED data sets in the console (and work properly)
-- [ ] Call from a server of existing users and store their queries
+- [x] Allow users to input FRED data sets in the console (and work properly)
+- [ ] Add more tests like stationarity and ARIMA models
+- [ ] Correct for disparities in inputted FRED data (likely using ARIMA)

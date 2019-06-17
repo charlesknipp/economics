@@ -18,6 +18,7 @@ answer = str(input('%s, u have a FRED api key? ' % name))
 yay = ['yes', 'yeah', 'yup', 'y', 'yuh', 'of course', 'duh', 'yay']
 nay = ['no', 'nah', 'nope', 'n', 'naw', 'negative', 'kinda', 'well...']
 
+# still unsure about the login system since it does hinder usability
 for response in range(0, len(yay)):
     if answer.lower() == yay[response]:
         key = str(input('enter ur FRED api key: '))
@@ -36,10 +37,7 @@ for response in range(0, len(yay)):
 
 # this conditional houses our work
 if x == 1:
-    # I eventually want to iterate this process so you can manually input any
-    # amount of datasets as long as they exist in FRED into an array
-
-    txt_init = str(input('which FRED datasets u want? '))
+    txt_init = str(input('which FRED datasets u want? ')).upper()
     txt = txt_init.replace(' ', '')
     datasets = txt.split(',')
 
@@ -65,24 +63,26 @@ if x == 1:
         count += 1
         print('[%d] %s' % (count, options))
 
+    # this creates a string for our dependent variable
     dependent = str(input('which one do you want to test? '))
     lmd = dependent + ' ~ '
     lm2 = []
 
+    # this identifies the non dependent variables using the conditional
     for i in datasets:
         if dependent != i:
             lm2.append(i)
 
-    # the desired output is a string we can reuse for post hoc tests
+    # the desired output is a string we can reuse for more post hoc tests
     sep = ' + '
     lmi = sep.join(lm2)
     formula = str(lmd + lmi)
 
-
     # regress that shit
     lm = smf.ols(formula, data=df).fit()
 
-    # a quick breusch pagan test
+
+    # a quick breusch pagan test for hedero/homoskedasticity
     bptest = sms.het_breuschpagan(lm.resid, lm.model.exog)
 
     if bptest[1] < .05:
