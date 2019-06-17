@@ -37,81 +37,68 @@ for response in range(0, len(yay)):
 # this conditional houses our work
 if x == 1:
     # I eventually want to iterate this process so you can manually input any
-    # amount of datasets as long as they exist in FRED
+    # amount of datasets as long as they exist in FRED into an array
 
-    '''
-    txt = str(input('which FRED datasets u want? '))
-    txt_nospaces = txt.replace(' ', '')
-    datasets = txt_nospaces.split(',')
-    '''
+    txt_init = str(input('which FRED datasets u want? '))
+    txt = txt_init.replace(' ', '')
+    datasets = txt.split(',')
 
-    # now this is where I think I fucked up but I don't know for sure
-    # I think I can use a .append to create a list of series, but with the
-    # way the api calls each series I have to be careful about iterating
+    ser = fred.get_series(datasets[0])
+    df = ser.to_frame(name=str(datasets[0]))
 
-    '''
-    ser = fred.get_series(datasets[0]).to_frame()
-    df_init = ser.to_frame(name=datasets[0])
-
-    for s in datasets:
-        if datasets.index(s) == 0:
+    for set in datasets:
+        if datasets.index(set)==0:
             continue
-
-        ser_loop = fred.get_series(datasets[s])
-        df_loop = ser_loop.to_frame(name=datasets[s])
-
-        if datasets.index(s) == 1:
-            df1 = df_init.join(df_loop)
-
-        elif datasets.index(s) > 1:
-            df = df1.join(df_loop)
-    '''
-
-    # or maybe I could try something like this... I hope...
-
-    '''
-    for y in datasets:
-        ser_alt = ['']
-        ser_alt.append(fred.get_series(datasets[y]))
-    df_alt = df[0].join(df[1:])
-    '''
-
-    # take the series from FRED and convert it to a ts data frame
-    ser1 = fred.get_series('GDP')
-    df1 = ser1.to_frame(name='GDP')
-    ser2 = fred.get_series('CPIAUCSL')
-    df2 = ser2.to_frame(name='CPI')
-
-    # join that shit
-    df = df1.join(df2)
+        ser1 = fred.get_series(set)
+        df1 = ser1.to_frame(name=set)
+        df = pd.concat([df,df1], axis = 1)
 
     # print that shit
     print(df.tail(10))
 
-    # regress that shit
-    lm = smf.ols('GDP ~ CPI', data=df).fit()
 
+    # splits the known list items into dependent and indepentent variables
+    print('choose your dependent variable:')
+    count = 0
+
+    for options in datasets:
+        count += 1
+        print('[%d] %s' % (count, options))
+
+    dependent = str(input('which one do you want to test? '))
+    lmd = dependent + ' ~ '
+    lm2 = []
+
+    for i in datasets:
+        if dependent != i:
+            lm2.append(i)
+
+    # the desired output is a string we can reuse for post hoc tests
+    sep = ' + '
+    lmi = sep.join(lm2)
+    formula = str(lmd + lmi)
+
+
+    # regress that shit
+    lm = smf.ols(formula, data=df).fit()
 
     # a quick breusch pagan test
     bptest = sms.het_breuschpagan(lm.resid, lm.model.exog)
 
     if bptest[1] < .05:
-        lmadj = smf.ols('GDP ~ CPI', data=df).fit(cov_type='HC0')
+        lmadj = smf.ols(formula, data=df).fit(cov_type='HC0')
         # this is for hederoskedasticity
 
     else:
-        lmadj = smf.ols('GDP ~ CPI', data=df).fit(cov_type='none')
+        lmadj = smf.ols(formula, data=df).fit(cov_type='none')
         # this is for homoskedasticity
 
     print(lmadj.summary())
     coefficients = lmadj.params
     print('\nthese are the coefficients:\n', coefficients)
 
-    i = 1    # i := independent vairables
 
-    '''
-    i = len(datasets)
-    ''' # this bit is for when I complete the user input functionality
+    i = len(datasets) # i := independent vairables
 
     if i < 2:
         if lmadj.pvalues[i] < .05:
