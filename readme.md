@@ -12,6 +12,6 @@ A repository of all the code I use as an undergraduate economics/math student.
 
 ### The rest
 
-*"You can't derive smallest"* [-Chinese proverb](https://wpcarey.asu.edu/people/profile/1636136)
+*"You can't derive smallest"* -[ancient chinese proverb](https://wpcarey.asu.edu/people/profile/1636136)
 
 email: cknipp@asu.edu
