@@ -12,8 +12,8 @@ register_matplotlib_converters()
 
 
 # this is a very rudimentary login system so we can each use our own api keys
-name = str(input('\nnew script, who dis?'))
-answer = str(input('%s, u have a FRED api key?' % name))
+name = str(input('\nnew script, who dis? '))
+answer = str(input('%s, u have a FRED api key? ' % name))
 
 yay = ['yes', 'yeah', 'yup', 'y', 'yuh', 'of course', 'duh', 'yay']
 nay = ['no', 'nah', 'nope', 'n', 'naw', 'negative', 'kinda', 'well...']
