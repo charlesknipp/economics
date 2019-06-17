@@ -1,6 +1,6 @@
 ## Regression tutorial
 
-Now that I have your attention, chances are you don't know how to use this kind of script. That's gonna change...I hope
+Chances are you don't know how to use this kind of script. That's gonna change...I hope
 
 **You need to have Python 3 installed locally on your machine**
 

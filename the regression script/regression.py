@@ -51,7 +51,6 @@ if x == 1:
         df1 = ser1.to_frame(name=set)
         df = pd.concat([df,df1], axis = 1)
 
-    # print that shit
     print(df.tail(10))
 
 
@@ -69,16 +68,14 @@ if x == 1:
     lm2 = []
 
     # this identifies the non dependent variables using the conditional
-    for i in datasets:
-        if dependent != i:
-            lm2.append(i)
+    for z in datasets:
+        if dependent != z:
+            lm2.append(z)
 
     # the desired output is a string we can reuse for more post hoc tests
     sep = ' + '
     lmi = sep.join(lm2)
     formula = str(lmd + lmi)
-
-    # regress that shit
     lm = smf.ols(formula, data=df).fit()
 
 
@@ -90,7 +87,7 @@ if x == 1:
         # this is for hederoskedasticity
 
     else:
-        lmadj = smf.ols(formula, data=df).fit(cov_type='none')
+        lmadj = smf.ols(formula, data=df).fit(cov_type=None)
         # this is for homoskedasticity
 
     print(lmadj.summary())
