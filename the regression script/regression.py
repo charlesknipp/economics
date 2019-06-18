@@ -1,6 +1,6 @@
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
+from matplotlib import pyplot as plt
 from fredapi import Fred
 import statsmodels.formula.api as smf
 import statsmodels.stats.api as sms
@@ -100,6 +100,10 @@ if x == 1:
 
         else:
             print('lmao u thought')
+
+    # matplotlib functionality finally is starting to work
+    plt.plot(df)
+    plt.show()
 
 
 elif x == 0:
