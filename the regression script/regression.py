@@ -53,6 +53,11 @@ if x == 1:
 
     print(df.tail(10))
 
+    '''
+    plt.plot(df)
+    plt.show
+    ''' # for matplotlib eventually and hopefully graphing a linear fit
+
     # splits the known list items into dependent and indepentent variables
     print('choose your dependent variable:')
     count = 0
@@ -94,6 +99,7 @@ if x == 1:
 
     i = len(datasets)  # i := independent vairables
 
+    # in the future implement multiple hypthesis testing (for multivariate ols)
     if i < 2:
         if lmadj.pvalues[i] < .05:
             print('reject the null')
@@ -101,7 +107,7 @@ if x == 1:
         else:
             print('lmao u thought')
 
-
+# for when you don't have an api key
 elif x == 0:
     print('that ain\'t it cheif\nu prolly derive smallest')
     x = 0
