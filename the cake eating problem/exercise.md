@@ -1,6 +1,6 @@
 ## The cake eating problem
 
-*the code is too good not to post to GitHub so I used cake instead, sorry Juan*
+*the code is too good not to post to GitHub, sorry Juan*
 
 The nature of the problem is as follows. An agent lives in periods 0, 1, ..., T, where T is a large number. The agent has preferences over the consumption of cake. In each period t the utility the agent receives from consuming c[t] units of cake is ln(c[t] + α). Utility in future periods is discounted by a factor β ∈ (0, 1). At date t = 0, the agent has a total amount x[0] > 0 cake.
 
