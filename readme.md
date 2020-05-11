@@ -2,9 +2,9 @@
 
 A repository of all the code I use as an undergraduate economics/math student.
 
-### The [pizza] eating problem
+### The cake eating problem
 
-`pizza_py_eating_problem.py` spooked everyone in Dr. Prescott's class... clearly, except for me. The problem requires students to maximize aggregate utility over time by optimizing consumption; constraints include a discount rate, a time period, and a budget.
+`cake_eating_problem.py` spooked everyone in Dr. Prescott's class... clearly, except for me. The problem requires students to maximize aggregate utility over time by optimizing consumption; constraints include a discount rate, a time period, and a budget.
 
 ### The regression script
 
