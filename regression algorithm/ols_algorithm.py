@@ -27,6 +27,7 @@ def parse(model,data):
             dep = v
         elif k in m[1]:
             ind = v
+            key = k
 
     try:
         add = re.split(r'\+',m[1])
@@ -51,6 +52,9 @@ def parse(model,data):
         except AttributeError:
             pass
 
+        if trm == key:
+            M.append([i for i in ind])
+
     if mlt:
         for i in mlt:
             M.append([i*j for j in ind])
@@ -59,9 +63,7 @@ def parse(model,data):
         for i in pwr:
             M.append([j**i for j in ind])
 
-    if not mlt and not pwr:
-        M.append(ind)
-    
+        
     y = [[i] for i in dep]
     M = [*map(list,[*zip(*M)])]
 
@@ -128,13 +130,14 @@ def ols(formula,data):
         B = [m[-1] for m in S]
         return B
 
+
 obs = {
-    'x': [1,2,3],
-    'y': [5,7,16]
+    'x': [0,1,2,3],
+    'y': [9,3,19,17]
 }
 
 model = ols(
-    formula = 'y ~ x + 1',
+    formula = 'y ~ x + x^2 + 1',
     data = obs
 )
 
