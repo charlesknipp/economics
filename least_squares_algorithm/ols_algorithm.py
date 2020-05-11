@@ -22,12 +22,15 @@ def parse(model,data):
     m = m.split('~')
     M = []
 
+    ind_list = []
+    key = []
+
     for k,v in data.items():
         if k == m[0]:
             dep = v
         elif k in m[1]:
-            ind = v
-            key = k
+            ind_list.append(v)
+            key.append(k)
 
     try:
         add = re.split(r'\+',m[1])
@@ -35,33 +38,23 @@ def parse(model,data):
         add = m[1]
 
     if re.search(r'(\+1$)|(^1\+)',m[1]) != None:
-        M.append([1 for i in ind])
+        M.append([1 for i in dep])
         m[1] = re.sub(r'(\+1$)|(^1\+)','',m[1])
-        
-    mlt = []
-    pwr = []
 
-    for trm in add:
-        try:
-            mlt.append(int(re.search(r'(\d)(\*)',trm).group(1)))
-        except AttributeError:
-            pass
+    for ind in range(len(ind_list)):
+        pwr = []
+        for trm in add:
+            try:
+                pwr.append(int(re.search(key[ind]+r'(\^)(\d)',trm).group(2)))
+            except AttributeError:
+                pass
 
-        try:
-            pwr.append(int(re.search(r'(\^)(\d)',trm).group(2)))
-        except AttributeError:
-            pass
-
-        if trm == key:
-            M.append([i for i in ind])
-
-    if mlt:
-        for i in mlt:
-            M.append([i*j for j in ind])
+            if trm == key:
+                M.append([i for i in ind_list[ind]])
     
-    if pwr:
-        for i in pwr:
-            M.append([j**i for j in ind])
+        if pwr:
+            for i in pwr:
+                M.append([j**i for j in ind_list[ind]])
 
         
     y = [[i] for i in dep]

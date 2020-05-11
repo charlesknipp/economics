@@ -14,8 +14,6 @@ A repository of all the code I use as an undergraduate economics/math student.
 
 `ols_algorithm.py` is a basic least squares regression algorithm that uses the matrix representation of least squares. The script also includes a function parser that interprets very similarly to r style formulas; something like `y ~ x + x^2 + 1` where `+1` represents a constant term.
 
-So far it only supports one dependent variable, but support for multivariable regression is a work in progress.
-
 ### The econometrics script
 
 `intro_analysis.py` is a demo of the `statsmodels` module in Python using `patsy` to interpret r style formulation; this is just a demo to show off the formulation considering the shortcomings of `statsmodels` own documentation. 
