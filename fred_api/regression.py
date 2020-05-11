@@ -12,22 +12,21 @@ register_matplotlib_converters()
 
 
 # this is a very rudimentary login system so we can each use our own api keys
-name = str(input('\nnew script, who dis? '))
-answer = str(input('%s, u have a FRED api key? ' % name))
+answer = str(input('do you have an api key?'))
 
-yay = ['yes', 'yeah', 'yup', 'y', 'yuh', 'of course', 'duh', 'yay']
-nay = ['no', 'nah', 'nope', 'n', 'naw', 'negative', 'kinda', 'well...']
+yay = ['y']
+nay = ['n']
 
 # still unsure about the login system since it does hinder usability
 for response in range(0, len(yay)):
     if answer.lower() == yay[response]:
-        key = str(input('enter ur FRED api key: '))
+        key = str(input('api key: '))
         fred = Fred(api_key=key)
         x = 1
         break
 
     elif answer.lower() == nay[response]:
-        print('u should get one using the link in the instructions')
+        print('get one using the link in the instructions')
         x = 0
         break
 
@@ -37,7 +36,7 @@ for response in range(0, len(yay)):
 
 # this conditional houses our work
 if x == 1:
-    txt_init = str(input('which FRED datasets u want? ')).upper()
+    txt_init = str(input('which datasets do you want? ')).upper()
     txt = txt_init.replace(' ', '')
     datasets = txt.split(',')
 
